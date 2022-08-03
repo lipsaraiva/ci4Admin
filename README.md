@@ -1,2 +1,2 @@
 # ci4Admin
-Dashboard Adminsitrativo CodeIgniter 4
+Dashboard Administrativo em CodeIgniter 4/MySQL
