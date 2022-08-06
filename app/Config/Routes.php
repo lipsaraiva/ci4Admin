@@ -37,14 +37,21 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 // $routes->get('/', 'Home::index');
 
-$routes->setDefaultController('RegisterController');
-$routes->get('/', 'RegisterController::index');
-$routes->post('/RegisterController/store', 'RegisterController::store');
-$routes->get('/register', 'RegisterController::index');
-$routes->get('/login', 'LoginController::index');
-$routes->post('/LoginController/signin', 'LoginController::signin');
-$routes->get('/logout', 'LoginController::logout');
-$routes->get('/dashboard', 'DashboardController::index',['filter' => 'routeFilter']);
+$routes->get('/', 'HomeController::index');
+
+// Rotas Admin
+$routes->setDefaultController('Admin\RegisterController');
+$routes->post('/RegisterController/store', 'Admin\RegisterController::store');
+$routes->get('/register', 'Admin\RegisterController::index');
+$routes->get('/login', 'Admin\LoginController::index');
+$routes->post('/LoginController/signin', 'Admin\LoginController::signin');
+$routes->get('/logout', 'Admin\LoginController::logout');
+
+$routes->get('/admin', 'Admin\DashboardController::index',['filter' => 'routeFilter']);
+$routes->get('/admin/(:any)', 'Admin\DashboardController::index/$1',['filter' => 'routeFilter']);
+
+
+
 
 /*
  * --------------------------------------------------------------------

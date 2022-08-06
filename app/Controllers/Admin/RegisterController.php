@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\Controllers;  
+namespace App\Controllers\Admin;  
 use CodeIgniter\Controller;
 
 use App\Models\UserModel;
@@ -12,7 +12,7 @@ class RegisterController extends Controller
     {
         helper(['form']);
         $data = [];
-        echo view('user_register', $data);
+        echo view('admin/user_register', $data);
     }
   
     public function store()
@@ -36,7 +36,7 @@ class RegisterController extends Controller
             return redirect()->to('/login');
         }else{
             $data['validation'] = $this->validator;
-            echo view('user_register', $data);
+            echo view('admin/user_register', $data);
         }
           
     }

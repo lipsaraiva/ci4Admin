@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\Controllers;  
+namespace App\Controllers\Admin;  
 use CodeIgniter\Controller;
 use App\Models\UserModel;
   
@@ -10,7 +10,7 @@ class LoginController extends Controller
     public function index()
     {
         helper(['form']);
-        echo view('login');
+        echo view('admin/login');
     } 
   
     public function signin()
@@ -35,7 +35,7 @@ class LoginController extends Controller
                 ];
 
                 $session->set($ses_data);
-                return redirect()->to('/dashboard');
+                return redirect()->to('/admin');
             }else{
                 $session->setFlashdata('msg', 'wrong password.');
                 return redirect()->to('/login');
